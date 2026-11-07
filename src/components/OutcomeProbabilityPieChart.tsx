@@ -66,32 +66,32 @@ export const OutcomeProbabilityPieChart: React.FC<OutcomeProbabilityPieChartProp
   }) || chartData[0];
 
   return (
-    <div className="bg-neutral-800/70 border border-neutral-700/60 rounded-xl p-4 text-white">
+    <div className="bg-white dark:bg-neutral-800/70 border border-neutral-200 dark:border-neutral-700/60 rounded-xl p-4 text-neutral-900 dark:text-white shadow-xs transition-colors">
       {/* Header */}
-      <div className="flex items-center justify-between pb-3 border-b border-neutral-700/60 mb-3">
+      <div className="flex items-center justify-between pb-3 border-b border-neutral-200 dark:border-neutral-700/60 mb-3">
         <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+          <div className="w-7 h-7 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
             <PieIcon className="w-4 h-4" />
           </div>
           <div>
-            <h4 className="text-xs font-bold text-neutral-100 flex items-center gap-2">
+            <h4 className="text-xs font-bold text-neutral-900 dark:text-neutral-100 flex items-center gap-2">
               <span>Вероятность исхода матча (П1 - X - П2)</span>
               {match.status === 'live' && (
-                <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 font-bold animate-pulse">
+                <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-rose-500/10 dark:bg-rose-500/20 text-rose-600 dark:text-rose-300 border border-rose-500/30 font-bold animate-pulse">
                   LIVE РАСЧЕТ
                 </span>
               )}
             </h4>
-            <p className="text-[11px] text-neutral-400">
+            <p className="text-[11px] text-neutral-500 dark:text-neutral-400">
               Модель на основе котировок, H2H, формы команд и счета в лайве
             </p>
           </div>
         </div>
 
         {/* Confidence badge */}
-        <div className="hidden sm:flex items-center gap-1.5 px-2 py-1 rounded-md bg-neutral-900/80 border border-neutral-700 text-[11px] font-mono text-neutral-300">
-          <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-          <span>Фаворит: <strong className="text-white">{dominantItem.shortName} ({dominantItem.value}%)</strong></span>
+        <div className="hidden sm:flex items-center gap-1.5 px-2 py-1 rounded-md bg-neutral-100 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-700 text-[11px] font-mono text-neutral-700 dark:text-neutral-300">
+          <Sparkles className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
+          <span>Фаворит: <strong className="text-neutral-900 dark:text-white">{dominantItem.shortName} ({dominantItem.value}%)</strong></span>
         </div>
       </div>
 
@@ -110,8 +110,7 @@ export const OutcomeProbabilityPieChart: React.FC<OutcomeProbabilityPieChartProp
                 innerRadius={46}
                 outerRadius={70}
                 paddingAngle={3}
-                stroke="#171717"
-                strokeWidth={2}
+                stroke="none"
               >
                 {chartData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
@@ -122,12 +121,12 @@ export const OutcomeProbabilityPieChart: React.FC<OutcomeProbabilityPieChartProp
                   if (active && payload && payload.length) {
                     const data = payload[0].payload;
                     return (
-                      <div className="bg-neutral-900/95 border border-neutral-700 p-2.5 rounded-lg shadow-xl text-xs backdrop-blur-md">
-                        <div className="font-bold text-white flex items-center gap-1.5">
+                      <div className="bg-white dark:bg-neutral-900/95 border border-neutral-200 dark:border-neutral-700 p-2.5 rounded-lg shadow-xl text-xs backdrop-blur-md">
+                        <div className="font-bold text-neutral-900 dark:text-white flex items-center gap-1.5">
                           <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: data.color }} />
                           <span>{data.name}</span>
                         </div>
-                        <div className="mt-1 font-mono text-amber-400 font-bold text-sm">
+                        <div className="mt-1 font-mono text-amber-500 dark:text-amber-400 font-bold text-sm">
                           {data.value}% вероятность
                         </div>
                       </div>
@@ -141,10 +140,10 @@ export const OutcomeProbabilityPieChart: React.FC<OutcomeProbabilityPieChartProp
 
           {/* Central Doughnut Hole Label */}
           <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-            <span className="text-[10px] font-semibold text-neutral-400 uppercase tracking-wider">
+            <span className="text-[10px] font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
               {dominantItem.shortName}
             </span>
-            <span className="text-lg font-mono font-extrabold text-white leading-none">
+            <span className="text-lg font-mono font-extrabold text-neutral-900 dark:text-white leading-none">
               {dominantItem.value}%
             </span>
           </div>
@@ -156,7 +155,7 @@ export const OutcomeProbabilityPieChart: React.FC<OutcomeProbabilityPieChartProp
             {chartData.map((item) => (
               <div 
                 key={item.shortName}
-                className="p-2.5 rounded-lg bg-neutral-900/90 border border-neutral-700/60 flex flex-col justify-between"
+                className="p-2.5 rounded-lg bg-neutral-50 dark:bg-neutral-900/90 border border-neutral-200 dark:border-neutral-700/60 flex flex-col justify-between shadow-2xs"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold" style={{ color: item.color }}>
@@ -164,10 +163,10 @@ export const OutcomeProbabilityPieChart: React.FC<OutcomeProbabilityPieChartProp
                   </span>
                   <span className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }} />
                 </div>
-                <div className="mt-1 font-mono text-base font-extrabold text-white">
+                <div className="mt-1 font-mono text-base font-extrabold text-neutral-900 dark:text-white">
                   {item.value}%
                 </div>
-                <div className="text-[10px] text-neutral-400 truncate mt-0.5">
+                <div className="text-[10px] text-neutral-500 dark:text-neutral-400 truncate mt-0.5">
                   {item.team}
                 </div>
               </div>
@@ -175,8 +174,8 @@ export const OutcomeProbabilityPieChart: React.FC<OutcomeProbabilityPieChartProp
           </div>
 
           {/* Analytical Rationale Strip */}
-          <div className="p-2.5 rounded-lg bg-neutral-900/50 border border-neutral-700/40 text-[11px] text-neutral-300 flex items-start gap-2">
-            <TrendingUp className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+          <div className="p-2.5 rounded-lg bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-700/40 text-[11px] text-neutral-700 dark:text-neutral-300 flex items-start gap-2 shadow-2xs">
+            <TrendingUp className="w-4 h-4 text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5" />
             <span className="leading-snug">{outcome.rationale}</span>
           </div>
         </div>

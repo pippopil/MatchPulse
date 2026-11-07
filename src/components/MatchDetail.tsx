@@ -48,35 +48,35 @@ export const MatchDetail: React.FC<MatchDetailProps> = ({ match, onClose }) => {
 
   return (
     <div className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-xs overflow-hidden">
-      {/* Top Match Header */}
-      <div className="p-4 md:p-6 bg-neutral-900 text-white relative">
-        <div className="flex items-center justify-between text-xs text-neutral-400 mb-3">
+      {/* Top Match Header - Light & Dark theme responsive */}
+      <div className="p-4 md:p-6 bg-neutral-50/70 dark:bg-neutral-900 text-neutral-900 dark:text-white border-b border-neutral-200 dark:border-neutral-800 relative transition-colors">
+        <div className="flex items-center justify-between text-xs text-neutral-500 dark:text-neutral-400 mb-3">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="font-semibold text-neutral-200">{match.tournament}</span>
+            <span className="font-semibold text-neutral-900 dark:text-neutral-200">{match.tournament}</span>
             <span>·</span>
-            <span className="text-emerald-400 font-mono font-medium">{match.source}</span>
+            <span className="text-emerald-600 dark:text-emerald-400 font-mono font-medium">{match.source}</span>
             <span>·</span>
-            <span className="bg-emerald-950/80 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded font-mono font-bold flex items-center gap-1 text-[11px]">
-              <Database className="w-3 h-3 text-emerald-400" />
+            <span className="bg-emerald-50 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded font-mono font-bold flex items-center gap-1 text-[11px]">
+              <Database className="w-3 h-3 text-emerald-500 dark:text-emerald-400" />
               Статистика: {totalSampleMatches} матчей ({homeMatchesCount}+{awayMatchesCount}+{h2hMatchesCount} H2H)
             </span>
           </div>
 
           <div className="flex items-center gap-3">
             {match.status === 'live' ? (
-              <div className="flex items-center gap-1.5 text-rose-400 font-mono font-bold">
+              <div className="flex items-center gap-1.5 text-rose-600 dark:text-rose-400 font-mono font-bold">
                 <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse" />
                 <span>{timeInfo.kickoffTime} · LIVE {timeInfo.liveLabel || `${match.liveMinute}'`}</span>
               </div>
             ) : match.status === 'finished' ? (
-              <div className="flex items-center gap-1.5 text-neutral-300 font-mono">
-                <span className="px-2 py-0.5 rounded bg-neutral-800 text-emerald-400 text-xs font-bold border border-neutral-700">
+              <div className="flex items-center gap-1.5 text-neutral-700 dark:text-neutral-300 font-mono">
+                <span className="px-2 py-0.5 rounded bg-neutral-200 dark:bg-neutral-800 text-emerald-700 dark:text-emerald-400 text-xs font-bold border border-neutral-300 dark:border-neutral-700">
                   Матч завершен (FT)
                 </span>
                 <span>{timeInfo.kickoffTime}</span>
               </div>
             ) : (
-              <div className="flex items-center gap-1.5 text-neutral-300 font-mono">
+              <div className="flex items-center gap-1.5 text-neutral-600 dark:text-neutral-300 font-mono">
                 <Clock className="w-3.5 h-3.5 text-neutral-400" />
                 <span>{timeInfo.fullDisplay}</span>
               </div>
@@ -85,7 +85,7 @@ export const MatchDetail: React.FC<MatchDetailProps> = ({ match, onClose }) => {
             {onClose && (
               <button
                 onClick={onClose}
-                className="p-1 rounded-md text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors"
+                className="p-1 rounded-md text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors"
                 title="Закрыть"
               >
                 <X className="w-4 h-4" />
@@ -99,21 +99,21 @@ export const MatchDetail: React.FC<MatchDetailProps> = ({ match, onClose }) => {
           {/* Home Team */}
           <div className="flex items-center gap-3 md:justify-end">
             <div className="text-right">
-              <h3 className="text-lg md:text-xl font-bold tracking-tight text-white">
+              <h3 className="text-lg md:text-xl font-bold tracking-tight text-neutral-900 dark:text-white">
                 {match.homeTeam}
               </h3>
-              <div className="flex items-center gap-1 justify-end mt-1 text-xs text-neutral-400">
+              <div className="flex items-center gap-1 justify-end mt-1 text-xs text-neutral-500 dark:text-neutral-400">
                 <span>Форма:</span>
                 <div className="flex gap-1 font-mono font-bold text-[10px]">
                   {homeTeamStats.form.map((res, i) => (
                     <span
                       key={i}
-                      className={`w-4 h-4 rounded-xs flex items-center justify-center ${
+                      className={`w-4 h-4 rounded-xs flex items-center justify-center font-bold text-white ${
                         res === 'W'
-                          ? 'bg-emerald-600 text-white'
+                          ? 'bg-emerald-600'
                           : res === 'D'
-                          ? 'bg-amber-600 text-white'
-                          : 'bg-rose-600 text-white'
+                          ? 'bg-amber-600'
+                          : 'bg-rose-600'
                       }`}
                     >
                       {res}
@@ -125,31 +125,31 @@ export const MatchDetail: React.FC<MatchDetailProps> = ({ match, onClose }) => {
           </div>
 
           {/* Central Score or Time */}
-          <div className="text-center bg-neutral-800/80 py-3 px-6 rounded-lg border border-neutral-700/60 max-w-[200px] mx-auto w-full">
+          <div className="text-center bg-white dark:bg-neutral-800/80 py-3 px-6 rounded-xl border border-neutral-200 dark:border-neutral-700/60 max-w-[200px] mx-auto w-full shadow-2xs">
             {match.status === 'live' ? (
               <>
-                <div className="text-2xl md:text-3xl font-extrabold font-mono tabular-nums tracking-wider text-white">
+                <div className="text-2xl md:text-3xl font-extrabold font-mono tabular-nums tracking-wider text-neutral-900 dark:text-white">
                   {match.homeScore} : {match.awayScore}
                 </div>
-                <div className="text-[11px] font-mono text-neutral-400 mt-1">
+                <div className="text-[11px] font-mono text-neutral-500 dark:text-neutral-400 mt-1">
                   1-й тайм: {match.halfTimeScore || `${match.homeScore}:${match.awayScore}`}
                 </div>
               </>
             ) : match.status === 'finished' ? (
               <>
-                <div className="text-2xl md:text-3xl font-extrabold font-mono tabular-nums tracking-wider text-white">
+                <div className="text-2xl md:text-3xl font-extrabold font-mono tabular-nums tracking-wider text-neutral-900 dark:text-white">
                   {match.homeScore ?? 0} : {match.awayScore ?? 0}
                 </div>
-                <div className="text-[11px] font-mono text-emerald-400 mt-1 font-bold">
+                <div className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 mt-1 font-bold">
                   Итоговый счет (FT)
                 </div>
               </>
             ) : (
               <>
-                <div className="text-xl md:text-2xl font-bold font-mono tracking-wider text-emerald-400">
+                <div className="text-xl md:text-2xl font-bold font-mono tracking-wider text-emerald-600 dark:text-emerald-400">
                   {timeInfo.kickoffTime}
                 </div>
-                <div className="text-[11px] text-neutral-400 mt-1">
+                <div className="text-[11px] text-neutral-500 dark:text-neutral-400 mt-1">
                   {timeInfo.fullDisplay}
                 </div>
               </>
@@ -159,21 +159,21 @@ export const MatchDetail: React.FC<MatchDetailProps> = ({ match, onClose }) => {
           {/* Away Team */}
           <div className="flex items-center gap-3 md:justify-start">
             <div className="text-left">
-              <h3 className="text-lg md:text-xl font-bold tracking-tight text-white">
+              <h3 className="text-lg md:text-xl font-bold tracking-tight text-neutral-900 dark:text-white">
                 {match.awayTeam}
               </h3>
-              <div className="flex items-center gap-1 mt-1 text-xs text-neutral-400">
+              <div className="flex items-center gap-1 mt-1 text-xs text-neutral-500 dark:text-neutral-400">
                 <span>Форма:</span>
                 <div className="flex gap-1 font-mono font-bold text-[10px]">
                   {awayTeamStats.form.map((res, i) => (
                     <span
                       key={i}
-                      className={`w-4 h-4 rounded-xs flex items-center justify-center ${
+                      className={`w-4 h-4 rounded-xs flex items-center justify-center font-bold text-white ${
                         res === 'W'
-                          ? 'bg-emerald-600 text-white'
+                          ? 'bg-emerald-600'
                           : res === 'D'
-                          ? 'bg-amber-600 text-white'
-                          : 'bg-rose-600 text-white'
+                          ? 'bg-amber-600'
+                          : 'bg-rose-600'
                       }`}
                     >
                       {res}
@@ -187,24 +187,24 @@ export const MatchDetail: React.FC<MatchDetailProps> = ({ match, onClose }) => {
 
         {/* Odds Strip */}
         {match.odds && (
-          <div className="mt-4 pt-3 border-t border-neutral-800 flex flex-wrap items-center justify-between text-xs gap-3">
-            <div className="flex items-center gap-3 text-neutral-400">
+          <div className="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-800 flex flex-wrap items-center justify-between text-xs gap-3">
+            <div className="flex items-center gap-3 text-neutral-500 dark:text-neutral-400 flex-wrap">
               <span>Линия Fonbet:</span>
-              <span className="font-mono text-neutral-200">П1: <strong className="text-white">{match.odds.homeWin}</strong></span>
-              <span className="font-mono text-neutral-200">X: <strong className="text-white">{match.odds.draw}</strong></span>
-              <span className="font-mono text-neutral-200">П2: <strong className="text-white">{match.odds.awayWin}</strong></span>
-              <span className="font-mono text-neutral-200">ТБ 2.5: <strong className="text-white">{match.odds.totalOver25}</strong></span>
-              <span className="font-mono text-neutral-200">ТМ 2.5: <strong className="text-white">{match.odds.totalUnder25}</strong></span>
+              <span className="font-mono text-neutral-700 dark:text-neutral-200">П1: <strong className="text-neutral-900 dark:text-white">{match.odds.homeWin}</strong></span>
+              <span className="font-mono text-neutral-700 dark:text-neutral-200">X: <strong className="text-neutral-900 dark:text-white">{match.odds.draw}</strong></span>
+              <span className="font-mono text-neutral-700 dark:text-neutral-200">П2: <strong className="text-neutral-900 dark:text-white">{match.odds.awayWin}</strong></span>
+              <span className="font-mono text-neutral-700 dark:text-neutral-200">ТБ 2.5: <strong className="text-neutral-900 dark:text-white">{match.odds.totalOver25}</strong></span>
+              <span className="font-mono text-neutral-700 dark:text-neutral-200">ТМ 2.5: <strong className="text-neutral-900 dark:text-white">{match.odds.totalUnder25}</strong></span>
             </div>
 
-            <div className="flex items-center gap-2 text-neutral-400 text-[11px] flex-wrap">
-              <Flame className="w-3.5 h-3.5 text-amber-400" />
-              <span>Вероятность ТБ 2.5: <strong className="text-emerald-400 font-mono">{metrics.predTotalOver25}%</strong></span>
+            <div className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400 text-[11px] flex-wrap">
+              <Flame className="w-3.5 h-3.5 text-amber-500" />
+              <span>Вероятность ТБ 2.5: <strong className="text-emerald-600 dark:text-emerald-400 font-mono">{metrics.predTotalOver25}%</strong></span>
               <span>·</span>
-              <span>Обе забьют: <strong className="text-emerald-400 font-mono">{metrics.predBTTS}%</strong></span>
+              <span>Обе забьют: <strong className="text-emerald-600 dark:text-emerald-400 font-mono">{metrics.predBTTS}%</strong></span>
               <span>·</span>
-              <span className="text-emerald-300 font-mono font-semibold flex items-center gap-1 bg-neutral-800 px-2 py-0.5 rounded">
-                <Database className="w-3 h-3 text-emerald-400" />
+              <span className="text-emerald-700 dark:text-emerald-300 font-mono font-semibold flex items-center gap-1 bg-emerald-50 dark:bg-neutral-800 border border-emerald-500/20 dark:border-neutral-700 px-2 py-0.5 rounded">
+                <Database className="w-3 h-3 text-emerald-500 dark:text-emerald-400" />
                 Выборка: {totalSampleMatches} матчей ({homeMatchesCount}+{awayMatchesCount}+{h2hMatchesCount} H2H)
               </span>
             </div>
