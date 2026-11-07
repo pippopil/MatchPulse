@@ -145,6 +145,18 @@ const server = http.createServer(async (req, res) => {
   serveFile(res, filePath);
 });
 
+server.on('error', (err: any) => {
+  if (err.code === 'EADDRINUSE') {
+    const nextPort = PORT === 3000 ? 3001 : PORT + 1;
+    console.warn(`\n[Внимание] Порт ${PORT} уже занят. Запуск на резервном порту ${nextPort}...`);
+    server.listen(nextPort, '0.0.0.0', () => {
+      echoRunningBanner(nextPort);
+    });
+  } else {
+    console.error('Ошибка запуска сервера:', err);
+  }
+});
+
 server.listen(PORT, '0.0.0.0', () => {
   console.log(`\n======================================================`);
   echoRunningBanner(PORT);

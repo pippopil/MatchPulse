@@ -1130,6 +1130,18 @@ var server = http.createServer(async (req, res) => {
   const filePath = path.join(DIST_DIR, safePath);
   serveFile(res, filePath);
 });
+server.on("error", (err) => {
+  if (err.code === "EADDRINUSE") {
+    const nextPort = PORT === 3e3 ? 3001 : PORT + 1;
+    console.warn(`
+[\u0412\u043D\u0438\u043C\u0430\u043D\u0438\u0435] \u041F\u043E\u0440\u0442 ${PORT} \u0443\u0436\u0435 \u0437\u0430\u043D\u044F\u0442. \u0417\u0430\u043F\u0443\u0441\u043A \u043D\u0430 \u0440\u0435\u0437\u0435\u0440\u0432\u043D\u043E\u043C \u043F\u043E\u0440\u0442\u0443 ${nextPort}...`);
+    server.listen(nextPort, "0.0.0.0", () => {
+      echoRunningBanner(nextPort);
+    });
+  } else {
+    console.error("\u041E\u0448\u0438\u0431\u043A\u0430 \u0437\u0430\u043F\u0443\u0441\u043A\u0430 \u0441\u0435\u0440\u0432\u0435\u0440\u0430:", err);
+  }
+});
 server.listen(PORT, "0.0.0.0", () => {
   console.log(`
 ======================================================`);
