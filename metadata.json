@@ -1,0 +1,6 @@
+{
+  "name": "MatchPulse: Парсер Футбола Fonbet & Flashscore",
+  "description": "Аналитический парсер футбольных матчей в реальном времени с поддержкой очных встреч H2H, графиками 15-минутных интервалов голов и фильтрами по процентам.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

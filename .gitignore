@@ -1,0 +1,9 @@
+node_modules/
+build/
+bin/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+.aistudio/
