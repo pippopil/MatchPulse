@@ -189,7 +189,7 @@ export const MatchDetail: React.FC<MatchDetailProps> = ({ match, onClose }) => {
         {match.odds && (
           <div className="mt-4 pt-3 border-t border-neutral-200 dark:border-neutral-800 flex flex-wrap items-center justify-between text-xs gap-3">
             <div className="flex items-center gap-3 text-neutral-500 dark:text-neutral-400 flex-wrap">
-              <span>Линия Fonbet:</span>
+              <span>Котировки исходов:</span>
               <span className="font-mono text-neutral-700 dark:text-neutral-200">П1: <strong className="text-neutral-900 dark:text-white">{match.odds.homeWin}</strong></span>
               <span className="font-mono text-neutral-700 dark:text-neutral-200">X: <strong className="text-neutral-900 dark:text-white">{match.odds.draw}</strong></span>
               <span className="font-mono text-neutral-700 dark:text-neutral-200">П2: <strong className="text-neutral-900 dark:text-white">{match.odds.awayWin}</strong></span>

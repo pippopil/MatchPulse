@@ -415,7 +415,7 @@ export function calculate15MinuteIntervals(seed: number): {
 }
 
 /**
- * Парсер глобального фида FlashScore Ninja (130+ матчей в лайве и 300+ сегодня БЕЗ ВПН)
+ * Парсер глобального фида Источник 1 (130+ матчей в лайве и 300+ сегодня)
  */
 export async function parseFlashscoreFeed(): Promise<MatchAnalysis[]> {
   const result: MatchAnalysis[] = [];
@@ -574,7 +574,7 @@ export async function parseFlashscoreFeed(): Promise<MatchAnalysis[]> {
 
         result.push({
           id: `fs-${matchId}`,
-          source: 'Flashscore Live',
+          source: 'Источник 1',
           sourceType: 'flashscore',
           tournament,
           country,
@@ -698,7 +698,7 @@ export async function parseFonbetFlashscoreFeed(): Promise<MatchAnalysis[]> {
     return fsMatches.map(m => ({
       ...m,
       id: `fb-${m.id}`,
-      source: 'Fonbet & Flashscore',
+      source: 'Источник 1',
       sourceType: 'fonbet' as DataSourceType
     }));
   }
@@ -831,7 +831,7 @@ export async function parseLiveScoreFeed(): Promise<MatchAnalysis[]> {
 
           result.push({
             id: `ls-${rawId}`,
-            source: 'LiveScore Global',
+            source: 'Источник 3',
             sourceType: 'livescore',
             tournament,
             country,
@@ -982,7 +982,7 @@ export async function parseESPNFeed(): Promise<MatchAnalysis[]> {
 
         result.push({
           id: `espn-${ev.id}`,
-          source: 'ESPN World',
+          source: 'Источник 4',
           sourceType: 'espn',
           tournament: lg.titleRu,
           country: lg.country,

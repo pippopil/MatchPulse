@@ -251,12 +251,12 @@ export default function App() {
 
   const sourceNameDisplay = 
     filters.sourceType === 'all'
-      ? 'Все источники (Объединенная база 200+ матчей)'
+      ? 'Главный (все источники)'
+      : filters.sourceType === 'flashscore' || filters.sourceType === 'fonbet'
+      ? 'Источник 1'
       : filters.sourceType === 'livescore'
-      ? 'LiveScore Global (100+ матчей онлайн)'
-      : filters.sourceType === 'fonbet'
-      ? 'Fonbet & Flashscore (Линии и очные встречи)'
-      : 'ESPN World (Еврокубки и топ-лиги)';
+      ? 'Источник 3'
+      : 'Источник 4';
 
   return (
     <div className="min-h-screen bg-neutral-100 dark:bg-[#0B0F17] text-neutral-900 dark:text-neutral-100 transition-colors">
@@ -296,7 +296,7 @@ export default function App() {
                 <span className="text-emerald-600 dark:text-emerald-400 font-semibold">{sourceNameDisplay}</span>
               </div>
               <div className="text-[11px] text-neutral-500 dark:text-neutral-400 mt-0.5">
-                Работает без ВПН на территории РФ · Авто-обновление каждые {refreshInterval}с · Очные встречи H2H и интервалы по 15 мин
+                Авто-обновление каждые {refreshInterval}с · Очные встречи H2H и интервалы по 15 мин
               </div>
             </div>
           </div>

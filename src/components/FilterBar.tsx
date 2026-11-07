@@ -61,29 +61,18 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                 : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
             }`}
           >
-            <span>🌐 Все источники (300+)</span>
+            <span>🌐 Главный</span>
           </button>
 
           <button
             onClick={() => update({ sourceType: 'flashscore' })}
             className={`px-3 py-1.5 rounded-lg font-semibold transition-colors shrink-0 flex items-center gap-1.5 ${
-              filters.sourceType === 'flashscore'
+              filters.sourceType === 'flashscore' || filters.sourceType === 'fonbet'
                 ? 'bg-amber-600 text-white shadow-xs'
                 : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
             }`}
           >
-            <span>⚡ Flashscore Live (130+ в эфире)</span>
-          </button>
-
-          <button
-            onClick={() => update({ sourceType: 'fonbet' })}
-            className={`px-3 py-1.5 rounded-lg font-semibold transition-colors shrink-0 flex items-center gap-1.5 ${
-              filters.sourceType === 'fonbet'
-                ? 'bg-rose-600 text-white shadow-xs'
-                : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
-            }`}
-          >
-            <span>🔴 Fonbet Линия</span>
+            <span>⚡ Источник 1</span>
           </button>
 
           <button
@@ -94,7 +83,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                 : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
             }`}
           >
-            <span>🌍 LiveScore Global</span>
+            <span>🌍 Источник 3</span>
           </button>
 
           <button
@@ -105,16 +94,13 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                 : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
             }`}
           >
-            <span>🏆 ESPN World</span>
+            <span>🏆 Источник 4</span>
           </button>
         </div>
 
         <div className="flex items-center gap-2 flex-wrap">
           <div className="flex items-center gap-1.5 text-[11px] text-neutral-600 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-800/80 px-2.5 py-1 rounded-md border border-neutral-200 dark:border-neutral-700 font-mono">
             <span>📊 Выборка: <strong>20–25 матчей</strong> на каждую пару команд</span>
-          </div>
-          <div className="flex items-center gap-1.5 text-[11px] text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 px-2.5 py-1 rounded-md border border-emerald-500/20 shrink-0 font-medium">
-            <span>✓ Работает без ВПН на территории РФ</span>
           </div>
         </div>
       </div>

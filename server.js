@@ -492,7 +492,7 @@ async function parseFlashscoreFeed() {
         const secondHalfGoalProb = 78 + seed % 18;
         result.push({
           id: `fs-${matchId}`,
-          source: "Flashscore Live",
+          source: "\u0418\u0441\u0442\u043E\u0447\u043D\u0438\u043A 1",
           sourceType: "flashscore",
           tournament,
           country,
@@ -611,7 +611,7 @@ async function parseFonbetFlashscoreFeed() {
     return fsMatches.map((m) => ({
       ...m,
       id: `fb-${m.id}`,
-      source: "Fonbet & Flashscore",
+      source: "\u0418\u0441\u0442\u043E\u0447\u043D\u0438\u043A 1",
       sourceType: "fonbet"
     }));
   }
@@ -730,7 +730,7 @@ async function parseLiveScoreFeed() {
           const secondHalfGoalProb = 80 + seed % 17;
           result.push({
             id: `ls-${rawId}`,
-            source: "LiveScore Global",
+            source: "\u0418\u0441\u0442\u043E\u0447\u043D\u0438\u043A 3",
             sourceType: "livescore",
             tournament,
             country,
@@ -870,7 +870,7 @@ async function parseESPNFeed() {
         const intervals15 = calculate15MinuteIntervals(seed);
         result.push({
           id: `espn-${ev.id}`,
-          source: "ESPN World",
+          source: "\u0418\u0441\u0442\u043E\u0447\u043D\u0438\u043A 4",
           sourceType: "espn",
           tournament: lg.titleRu,
           country: lg.country,

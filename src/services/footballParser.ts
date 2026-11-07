@@ -95,7 +95,7 @@ export function getInitialMatchData(): MatchAnalysis[] {
   return [
     {
       id: 'match-real-401912613',
-      source: 'Fonbet & Flashscore',
+      source: 'Источник 1',
       tournament: 'Лига Чемпионов АФК',
       country: 'Азия',
       homeTeam: 'Бурирам Юнайтед',
@@ -186,7 +186,7 @@ export function getInitialMatchData(): MatchAnalysis[] {
     },
     {
       id: 'match-real-aek-real',
-      source: 'Fonbet & Flashscore',
+      source: 'Источник 1',
       tournament: 'Лига Чемпионов УЕФА',
       country: 'Европа',
       homeTeam: 'АЕК Афины',
@@ -268,7 +268,7 @@ export function getInitialMatchData(): MatchAnalysis[] {
     },
     {
       id: 'match-real-fen-liv',
-      source: 'Fonbet & Flashscore',
+      source: 'Источник 1',
       tournament: 'Лига Чемпионов УЕФА',
       country: 'Европа',
       homeTeam: 'Фенербахче',
@@ -347,7 +347,7 @@ export function getInitialMatchData(): MatchAnalysis[] {
     },
     {
       id: 'match-real-bvb-betis',
-      source: 'Fonbet & Flashscore',
+      source: 'Источник 1',
       tournament: 'Лига Чемпионов УЕФА',
       country: 'Европа',
       homeTeam: 'Боруссия Дортмунд',
@@ -426,7 +426,7 @@ export function getInitialMatchData(): MatchAnalysis[] {
     },
     {
       id: 'match-real-porto-napoli',
-      source: 'Fonbet & Flashscore',
+      source: 'Источник 1',
       tournament: 'Лига Чемпионов УЕФА',
       country: 'Европа',
       homeTeam: 'Порту',
@@ -506,7 +506,7 @@ export function getInitialMatchData(): MatchAnalysis[] {
     },
     {
       id: 'match-real-rbl-mcfc',
-      source: 'Fonbet & Flashscore',
+      source: 'Источник 1',
       tournament: 'Лига Чемпионов УЕФА',
       country: 'Европа',
       homeTeam: 'РБ Лейпциг',
@@ -587,7 +587,7 @@ export function getInitialMatchData(): MatchAnalysis[] {
     },
     {
       id: 'match-real-slavia-arsenal',
-      source: 'Fonbet & Flashscore',
+      source: 'Источник 1',
       tournament: 'Лига Чемпионов УЕФА',
       country: 'Европа',
       homeTeam: 'Славия Прага',
@@ -669,7 +669,7 @@ export function getInitialMatchData(): MatchAnalysis[] {
 }
 
 /**
- * Парсер внешних данных через серверный API и прямой клиентский сбор без ВПН
+ * Парсер внешних данных через серверный API и прямой клиентский сбор
  */
 export async function fetchMatchesFromParser(source: DataSourceType = 'all'): Promise<MatchAnalysis[]> {
   // 1. Попытка запросить нормализованный роут сервера с выбранным источником

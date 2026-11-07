@@ -65,14 +65,11 @@ export const Header: React.FC<HeaderProps> = ({
                 <span className="text-base font-extrabold tracking-tight text-neutral-900 dark:text-white">
                   MatchPulse
                 </span>
-                <span className="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300">
-                  Без ВПН
-                </span>
               </div>
               <div className="text-[11px] text-neutral-500 flex items-center gap-1.5">
                 <span>Парсер данных</span>
                 <span>·</span>
-                <span className="text-emerald-600 dark:text-emerald-400 font-medium">100% Онлайн в РФ</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-medium">Онлайн мониторинг</span>
               </div>
             </div>
           </div>
@@ -86,22 +83,19 @@ export const Header: React.FC<HeaderProps> = ({
                 value={currentSource}
                 onChange={(e) => onSourceChange(e.target.value as DataSourceType)}
                 className="bg-transparent font-medium text-neutral-900 dark:text-white focus:outline-hidden cursor-pointer py-1 px-1.5 rounded"
-                title="Переключение между источниками парсинга данных (все работают без ВПН на территории РФ)"
+                title="Переключение между источниками данных"
               >
                 <option value="all" className="dark:bg-neutral-900 text-neutral-900 dark:text-white">
-                  🌐 Все источники (300+ матчей / 130+ Live)
+                  🌐 Главный (все источники)
                 </option>
                 <option value="flashscore" className="dark:bg-neutral-900 text-neutral-900 dark:text-white">
-                  ⚡ Flashscore Live (130+ в эфире / все лиги)
-                </option>
-                <option value="fonbet" className="dark:bg-neutral-900 text-neutral-900 dark:text-white">
-                  🔴 Fonbet & Линия (Коэффициенты / H2H)
+                  ⚡ Источник 1
                 </option>
                 <option value="livescore" className="dark:bg-neutral-900 text-neutral-900 dark:text-white">
-                  🌍 LiveScore Global (100+ матчей)
+                  🌍 Источник 3
                 </option>
                 <option value="espn" className="dark:bg-neutral-900 text-neutral-900 dark:text-white">
-                  🏆 ESPN World Scoreboard
+                  🏆 Источник 4
                 </option>
               </select>
             </div>
